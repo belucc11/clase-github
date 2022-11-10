@@ -1,0 +1,178 @@
+/*reset*/
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* estilos generales */
+
+body{
+    background-color: #eceef3;
+}
+
+/* estilos de header */
+
+header{
+    display: none;
+}
+
+/* estilos de main */
+
+main{
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+}
+
+/* texto de linea con tabulado */
+
+main h2{
+    color: #182941;
+    text-align: center;
+}
+
+main h2 span{
+    display: block;
+}
+
+main p{
+    padding: 1rem;
+    text-align: center;
+}
+
+main .boton{
+    background-color: #51b0df;
+    color: whitesmoke;
+    padding: 0.7rem;
+    box-shadow: 1px 1px 5px black;
+    text-shadow: 1px 1px 5px black;
+}
+
+main img{
+    width: 70%;
+}
+
+/*estilos de section en este caso no hay section por lo q se usa display none*/
+
+section{
+    display: none;
+}
+
+/* estilos de footer */
+
+footer h4{
+    text-align: center;
+}
+
+/* media query */
+
+@media screen and (min-width:600px){
+
+        /* estilos de header */
+    header{
+        display: block;
+
+        /* alinear items horizontalmente*/
+        display: flex;
+        justify-content: space-around;
+
+        /* alinear items verticalmente ejemplo en el centro del titulo*/
+        align-items: center;
+    }
+    header nav ul{
+        list-style: none;
+        display: flex;
+        gap: 1.3rem
+    }
+
+    /*estilos de main */
+    main{
+        padding: 2rem;
+    }
+
+    /* estilos de section */
+
+    section{
+    display:block;
+    display: flex;
+    background-color: #bee0f1;
+    }
+    section div{
+        /* alinear items horizontalmente*/
+        display: flex;
+        /* alinear items abajo de los elementos como en una columna*/
+        flex-direction: column;
+        align-items: center;
+        padding: 1rem;
+    }
+
+    section div img{
+        width: 20%;
+    }
+
+    section div p{
+        text-align: center;
+    }
+}
+
+@media screen and (min-width:1024px)
+{
+    /*estilos menu */
+    header nav ul li:hover{
+        background-color: #bee0f1;
+        transform: scale(0.9);
+        box-shadow: 1px 2px 5px black;
+        transition rotate: 2sec;
+    }
+
+    /*estilos main */
+    main{
+        display: grid;
+        grid-template-columns:auto ;
+        grid-template-rows:auto ;
+        grid-template-areas: 
+                "p img"
+                "h2 img"
+                "p-dos img"
+                "boton img";
+        justify-items: center;
+    }
+    main p{
+        grid-area: p;
+    }
+    main h2{
+        grid-area: h2;
+    }
+    main .p-dos{
+        grid-area: p-dos ;
+    }
+    main img{
+        grid-area: img;
+    }
+
+    main img:hover{
+        filter: drop-shadow(2px 2px 5px black);
+        transform: rotate(40deg);
+    }
+
+    /*estilos de section */
+
+    section div img{
+        animation-name: img-latido;
+        animation-iteration-count:infinite ;
+        animation-duration: 3s;
+        animation-delay: 4s;
+    }
+
+    @keyframes img-latido {
+        from{
+            transform: scale(1);
+        }
+        to{
+            transform: scale (1,3);
+        }
+        
+    }
+}
